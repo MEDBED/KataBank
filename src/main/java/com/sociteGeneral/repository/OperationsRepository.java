@@ -1,4 +1,7 @@
 package com.sociteGeneral.repository;
 
-public interface OperationsRepository {
+import org.springframework.data.repository.CrudRepository;
+import com.sociteGeneral.model.Operations;
+
+public interface OperationsRepository extends CrudRepository<Operations, Integer> {
 }
