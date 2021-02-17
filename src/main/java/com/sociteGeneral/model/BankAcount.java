@@ -17,12 +17,6 @@ public class BankAcount {
     @Column
     private String clientName;
     @Column
-    private String operation;
-    @Column
-    private String date;
-    @Column
-    private float amount;
-    @Column
     private float balance;
 
     public int getAcountiId() {
@@ -41,14 +35,6 @@ public class BankAcount {
         this.clientName = clientName;
     }
 
-    public float getAmount() {
-        return amount;
-    }
-
-    public void setAmount(float amount) {
-        this.amount = amount;
-    }
-
     public float getBalance() {
         return balance;
     }
@@ -57,19 +43,5 @@ public class BankAcount {
         this.balance = balance;
     }
 
-    public String getDate() {
-        return date;
-    }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getOperation() {
-        return operation;
-    }
-
-    public void setOperation(String operation) {
-        this.operation = operation;
-    }
 }
