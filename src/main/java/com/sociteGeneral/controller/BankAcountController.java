@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.sociteGeneral.model.BankAcount;
-import com.sociteGeneral.service.bankAcountService;
+import com.sociteGeneral.service.BankAcountService;
 
 //mark class as Controller
 @RestController
@@ -19,7 +19,7 @@ import com.sociteGeneral.service.bankAcountService;
 public class BankAcountController {
     //autowire the BankAcountService class
     @Autowired
-    bankAcountService bankAcountService;
+    BankAcountService bankAcountService;
     //creating a get mapping that retrieves all the bankAcount detail from the database
     @GetMapping("/bankAcounts")
     private List<BankAcount> getAllBankAcouunts()

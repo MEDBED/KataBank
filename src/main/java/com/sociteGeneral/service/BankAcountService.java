@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 //defining the business logic
 @Service
-public class bankAcountService {
+public class BankAcountService {
     @Autowired
     BankAcountRepository bankAcountRepository;
 
