@@ -40,6 +40,7 @@ public class BankAcountController {
     {
         bankAcountService.delete(acounId);
     }
+
     //creating post mapping that post the bankAcount detail in the database
     @PostMapping("/creatBankAcount")
     private int saveBankAcount(@RequestBody BankAcount bankAcount)
@@ -47,6 +48,7 @@ public class BankAcountController {
         bankAcountService.saveOrUpdate(bankAcount);
         return bankAcount.getAcountiId();
     }
+
     //creating put mapping that updates the bankAcount detail
     @PutMapping("/ubdateBankAcount")
     private BankAcount update(@RequestBody BankAcount bankAcount)

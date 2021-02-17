@@ -19,9 +19,7 @@ public class BankAcount {
     @Column
     private float balance;
 
-    public int getAcountiId() {
-        return acountId;
-    }
+    public int getAcountiId() { return acountId; }
 
     public void setAcountiId(int acountId) {
         this.acountId = acountId;

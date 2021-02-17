@@ -24,6 +24,7 @@ public class Operations {
     public void setAcountiId(int clientId) {
         this.clientId = clientId;
     }
+
     public float getAmount() {
         return amount;
     }
@@ -31,6 +32,7 @@ public class Operations {
     public void setAmount(float amount) {
         this.amount = amount;
     }
+
     public String getDate() {
         return date;
     }
