@@ -23,16 +23,17 @@ public class OperationsController {
     //autowire the OperationsService class
     @Autowired
     OperationsServices OperationsService;
+
     //creating a get mapping that retrieves all the Operations detail from the database
     @GetMapping("/Operations")
-    private List<BankAcount> getAllOperationss()
+    private List<Operations> getAllOperationss()
     {
         return OperationsService.getAllOperations();
     }
 
     //creating a get mapping that retrieves the detail of a specific client
     @GetMapping("/Operations/{clientId}")
-    private BankAcount getOperations(@PathVariable("clientId") int clientId)
+    private Operations getOperations(@PathVariable("clientId") int clientId)
     {
         return OperationsServices.getOperationsByClientId(clientId);
     }
