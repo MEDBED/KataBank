@@ -19,7 +19,9 @@ public class BankAcount {
     @Column
     private float balance;
 
-    public int getIban() { return Iban; }
+    public int getIban() {
+        return Iban;
+    }
 
     public void setAcountiId(int acountId) {
         this.Iban = acountId;
