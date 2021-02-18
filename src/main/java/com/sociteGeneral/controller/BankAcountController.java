@@ -15,11 +15,12 @@ import com.sociteGeneral.service.BankAcountService;
 
 //mark class as Controller
 @RestController
-
 public class BankAcountController {
+
     //autowire the BankAcountService class
     @Autowired
     BankAcountService bankAcountService;
+
     //creating a get mapping that retrieves all the bankAcount detail from the database
     @GetMapping("/bankAcounts")
     private List<BankAcount> getAllBankAcouunts()
