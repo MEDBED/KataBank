@@ -28,15 +28,15 @@ public class BankAcountController {
     }
 
     //creating a get mapping that retrieves the detail of a specific bankAcount
-    @GetMapping("/bankAcount/{acountId}")
-    private BankAcount getBankAcount(@PathVariable("acountId") int acountId)
+    @GetMapping("/bankAcount/{Iban}")
+    private BankAcount getBankAcount(@PathVariable("Iban") int acountId)
     {
         return bankAcountService.getBankAcountById(acountId);
     }
 
     //creating a delete mapping that deletes a specified bankAcount
-    @DeleteMapping("/bankAcount/{acountId}")
-    private void deleteBankAcount(@PathVariable("acountId") int acounId)
+    @DeleteMapping("/bankAcount/{Iban}")
+    private void deleteBankAcount(@PathVariable("Iban") int acounId)
     {
         bankAcountService.delete(acounId);
     }
@@ -46,7 +46,7 @@ public class BankAcountController {
     private int saveBankAcount(@RequestBody BankAcount bankAcount)
     {
         bankAcountService.saveOrUpdate(bankAcount);
-        return bankAcount.getAcountiId();
+        return bankAcount.getIban();
     }
 
     //creating put mapping that updates the bankAcount detail

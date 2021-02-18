@@ -21,7 +21,7 @@ public class Operations {
         return clientId;
     }
 
-    public void setAcountiId(int clientId) {
+    public void setClientId(int clientId) {
         this.clientId = clientId;
     }
 

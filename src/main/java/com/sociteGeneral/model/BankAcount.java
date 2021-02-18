@@ -13,16 +13,16 @@ public class BankAcount {
     //Defining book id as primary key
     @Id
     @Column
-    private int acountId;
+    private int Iban;
     @Column
     private String clientName;
     @Column
     private float balance;
 
-    public int getAcountiId() { return acountId; }
+    public int getIban() { return Iban; }
 
     public void setAcountiId(int acountId) {
-        this.acountId = acountId;
+        this.Iban = acountId;
     }
 
     public String getClientName() {

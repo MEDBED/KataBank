@@ -22,41 +22,33 @@ public class OperationsController {
 
     //autowire the OperationsService class
     @Autowired
-    BankAcountService bankAcountService;
+    OperationsServices OperationsService;
     //creating a get mapping that retrieves all the Operations detail from the database
-    @GetMapping("/bankAcounts")
-    private List<BankAcount> getAllBankAcouunts()
+    @GetMapping("/Operations")
+    private List<BankAcount> getAllOperationss()
     {
-        return bankAcountService.getAllBankAcounts();
+        return OperationsService.getAllOperations();
     }
 
-    //creating a get mapping that retrieves the detail of a specific bankAcount
-    @GetMapping("/bankAcount/{acountId}")
-    private BankAcount getBankAcount(@PathVariable("acountId") int acountId)
+    //creating a get mapping that retrieves the detail of a specific client
+    @GetMapping("/Operations/{clientId}")
+    private BankAcount getOperations(@PathVariable("clientId") int clientId)
     {
-        return bankAcountService.getBankAcountById(acountId);
+        return OperationsServices.getOperationsByClientId(clientId);
     }
 
-    //creating a delete mapping that deletes a specified bankAcount
-    @DeleteMapping("/bankAcount/{acountId}")
-    private void deleteBankAcount(@PathVariable("acountId") int acounId)
+    //creating a delete mapping that deletes a specified operartion for a specific client
+    @DeleteMapping("/DeleteOperations/{clientId}")
+    private void deleteOperations(@PathVariable("clientId") int clientId)
     {
-        bankAcountService.delete(acounId);
+        OperationsService.delete(clientId);
     }
 
     //creating post mapping that post the bankAcount detail in the database
-    @PostMapping("/creatBankAcount")
-    private int saveBankAcount(@RequestBody BankAcount bankAcount)
+    @PostMapping("/newOperation")
+    private int saveBankAcount(@RequestBody Operations operation)
     {
-        bankAcountService.saveOrUpdate(bankAcount);
-        return bankAcount.getAcountiId();
-    }
-
-    //creating put mapping that updates the bankAcount detail
-    @PutMapping("/ubdateBankAcount")
-    private BankAcount update(@RequestBody BankAcount bankAcount)
-    {
-        bankAcountService.saveOrUpdate(bankAcount);
-        return bankAcount;
+        OperationsService.saveOrUpdate(operation);
+        return operation.getClientiId();
     }
 }
