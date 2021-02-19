@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 
 //mark class as an Entity
 @Entity
@@ -18,7 +19,7 @@ public class Operations {
     @Column
     private String operation;
     @Column
-    private String date;
+    private LocalDateTime date;
     @Column
     private float amount;
 
@@ -38,11 +39,11 @@ public class Operations {
         this.amount = amount;
     }
 
-    public String getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

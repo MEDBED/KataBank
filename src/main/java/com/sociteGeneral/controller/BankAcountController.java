@@ -1,7 +1,10 @@
 package com.sociteGeneral.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
+import com.sociteGeneral.model.Operations;
+import com.sociteGeneral.service.OperationsServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +23,9 @@ public class BankAcountController {
     //autowire the BankAcountService class
     @Autowired
     BankAcountService bankAcountService;
+    OperationsServices operationsServices;
+
+    Operations tmpOperation ;
 
     //creating a get mapping that retrieves all the bankAcount detail from the database
     @GetMapping("/bankAcounts")
@@ -58,5 +64,20 @@ public class BankAcountController {
         return bankAcount;
     }
 
+    //creating post mapping that create new operation
+    @PostMapping("/operation/{Type}")
+    private void withdraw(@PathVariable("Type") String operationType, int acounId, float amount)
+    {
+        if (operationType == "withdrow" ){
+            bankAcountService.withdraw(acounId, amount);
+        }else{
+            bankAcountService.deposit(acounId, amount);
+        }
+        this.tmpOperation.setAmount(amount);
+        this.tmpOperation.setClientId(acounId);
+        this.tmpOperation.setOperation(operationType);
+        this.tmpOperation.setDate(LocalDateTime.now());
+        operationsServices.saveOrUpdate(tmpOperation);
+    }
 
 }
