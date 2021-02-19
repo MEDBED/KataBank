@@ -16,15 +16,13 @@ public class OperationsServices {
     @Autowired
     OperationsRepository operationsRepository;
 
-    public List<com.sociteGeneral.model.Operations> getOperationsByClientId(int clientId)
-    {
+    public List<Operations> getOperationsByClientId(int clientId) {
         List<Operations> ClientOperations = new ArrayList<Operations>();
         operationsRepository.findAllById(Collections.singleton(clientId)).forEach(operations -> ClientOperations.add(operations));
         return ClientOperations;
     }
 
     public List<Operations> getAllOperations() {
-
         List<Operations> Operation = new ArrayList<Operations>();
         operationsRepository.findAll().forEach(operations1 -> Operation.add(operations1));
         return Operation;

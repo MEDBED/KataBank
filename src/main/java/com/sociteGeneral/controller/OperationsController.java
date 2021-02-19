@@ -22,34 +22,34 @@ public class OperationsController {
 
     //autowire the OperationsService class
     @Autowired
-    OperationsServices OperationsService;
+    OperationsServices operationsService;
 
     //creating a get mapping that retrieves all the Operations detail from the database
     @GetMapping("/Operations")
     private List<Operations> getAllOperationss()
     {
-        return OperationsService.getAllOperations();
+        return operationsService.getAllOperations();
     }
 
     //creating a get mapping that retrieves the detail of a specific client
     @GetMapping("/Operations/{clientId}")
-    private Operations getOperations(@PathVariable("clientId") int clientId)
+    public List<Operations> getOperationByiDClient(@PathVariable("clientId") int clientId)
     {
-        return OperationsServices.getOperationsByClientId(clientId);
+        return operationsService.getOperationsByClientId(clientId);
     }
 
     //creating a delete mapping that deletes a specified operartion for a specific client
     @DeleteMapping("/DeleteOperations/{clientId}")
     private void deleteOperations(@PathVariable("clientId") int clientId)
     {
-        OperationsService.delete(clientId);
+        operationsService.delete(clientId);
     }
 
     //creating post mapping that post the bankAcount detail in the database
     @PostMapping("/newOperation")
     private int saveBankAcount(@RequestBody Operations operation)
     {
-        OperationsService.saveOrUpdate(operation);
+        operationsService.saveOrUpdate(operation);
         return operation.getClientiId();
     }
 }
