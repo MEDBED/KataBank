@@ -48,6 +48,7 @@ public class BankAcountService {
         BankAcount ba;
         ba = getBankAcountById(Iban);
         ba.balance = ba.balance - amount;
+        update(ba,Iban);
 
     }
 
@@ -56,7 +57,7 @@ public class BankAcountService {
         BankAcount ba;
         ba = getBankAcountById(Iban);
         ba.balance = ba.balance + amount;
-        this.update(ba,Iban);
+        update(ba,Iban);
 
     }
 
