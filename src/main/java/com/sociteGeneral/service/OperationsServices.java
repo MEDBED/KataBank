@@ -1,9 +1,9 @@
 package com.sociteGeneral.service;
 
-import com.sociteGeneral.model.BankAcount;
 import com.sociteGeneral.model.Operations;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import com.sociteGeneral.repository.OperationsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +16,11 @@ public class OperationsServices {
     @Autowired
     OperationsRepository operationsRepository;
 
-    public static Operations getOperationsByClientId(int clientId) {
-        return null;
+    public List<com.sociteGeneral.model.Operations> getOperationsByClientId(int clientId)
+    {
+        List<Operations> ClientOperations = new ArrayList<Operations>();
+        operationsRepository.findAllById(Collections.singleton(clientId)).forEach(operations -> ClientOperations.add(operations));
+        return ClientOperations;
     }
 
     public List<Operations> getAllOperations() {
@@ -28,8 +31,10 @@ public class OperationsServices {
     }
 
     public void delete(int clientId) {
+        operationsRepository.deleteById(clientId);
     }
 
     public void saveOrUpdate(Operations operation) {
+        operationsRepository.save(operation);
     }
 }

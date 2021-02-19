@@ -43,6 +43,23 @@ public class BankAcountService {
         bankAcountRepository.save(bankAcount);
     }
 
+    public void withdraw(int Iban,   float amount)
+    {
+        BankAcount ba;
+        ba = getBankAcountById(Iban);
+        ba.balance = ba.balance - amount;
+
+    }
+
+    public void deposit(int Iban,   float amount)
+    {
+        BankAcount ba;
+        ba = getBankAcountById(Iban);
+        ba.balance = ba.balance + amount;
+        this.update(ba,Iban);
+
+    }
+
 
 
 }

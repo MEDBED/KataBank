@@ -17,7 +17,7 @@ public class BankAcount {
     @Column
     private String clientName;
     @Column
-    private float balance;
+    public float balance;
 
     public int getIban() {
         return Iban;
